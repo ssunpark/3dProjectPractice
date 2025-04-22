@@ -16,7 +16,7 @@ public class CameraRotate : MonoBehaviour
         // 1. 마우스 입력을 받는다.(마우스 커서의 움직임 방향)
         float mouseX = Input.GetAxis("Mouse X");
         float mouseY = Input.GetAxis("Mouse Y");
-        Debug.Log($"Mouse X: {mouseX}, Mouse Y: {mouseY}");
+        //Debug.Log($"Mouse X: {mouseX}, Mouse Y: {mouseY}");
 
         // 2. 마우스 입력으로부터 회전시킬 방향을 만든다.
         // TODO: 마우스 좌표계와 화면 좌표계의 차이점을 알고, 잘작동하도록 아래 한줄의 코드를 수정해보자.
