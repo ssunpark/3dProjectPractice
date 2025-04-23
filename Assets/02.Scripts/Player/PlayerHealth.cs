@@ -14,7 +14,6 @@ public class PlayerHealth : MonoBehaviour
         PlayerHealthBar.maxValue = stats.MaxHealth;
         PlayerHealthBar.value = stats.CurrentHealth;
     }
-
     private void Update()
     {
         HealthControl();

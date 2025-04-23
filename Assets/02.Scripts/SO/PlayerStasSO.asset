@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a069d89367ebf894bb20cc09a0b220e3, type: 3}
   m_Name: PlayerStasSO
   m_EditorClassIdentifier: 
-  CurrentHealth: 6.185226
+  CurrentHealth: 100
   MaxHealth: 200
   HealthDamage: 5
   HealthGain: 2

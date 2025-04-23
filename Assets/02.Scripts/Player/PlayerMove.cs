@@ -2,31 +2,31 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    // ¸ñÇ¥: wasd¸¦ ´©¸£¸é Ä³¸¯ÅÍ¸¦ Ä«¸Ş¶ó ¹æÇâ¿¡ ¸Â°Ô ÀÌµ¿½ÃÅ°°í ½Í´Ù.
-    [Header("¼Óµµ")]
-    public float MoveSpeed = 7f;
-    public float RunSpeed = 12f; // ÇÃ·¹ÀÌ¾î ¶Û ¶§ ¼Óµµ
+    [Header("ì†ë„")]
+    public float MoveSpeed = 10f;
+    public float RunSpeed = 15f;
     public float RollSpeed = 20f;
 
-    [Header("Á¡ÇÁ")]
+    [Header("ì í”„")]
     public float JumpPower = 5f;
-    private const float GRAVITY = -9.8f; // Áß·Â
-    private float _yVelocity = 0f; // Áß·Â°¡¼Óµµ
+    private const float GRAVITY = -9.8f;
+    private float _yVelocity = 0f;
     public int _jumpCount = 0;
 
-    [Header("º®Å¸±â")]
+    [Header("ë²½íƒ€ê¸°")]
     public float WallSlideSpeed;
-    public Vector2 WallJumpForce = new Vector2(5f, 8f);
-    public LayerMask WallLayerMask;
     public float WallCheckDistance = 0.7f;
+    public Vector2 WallJumpForce = new Vector2(5f, 8f);
+    private Vector3 _wallNormal;
+    public LayerMask WallLayerMask;
 
+    [Header("ìƒíƒœ ì²´í¬")]
     public bool _isRunning = false;
     public bool _isRolling = false;
     public bool _isWallSliding = false;
     private bool _forceFallFromWall = false;
 
     private CharacterController _chracterController;
-    private Vector3 _wallNormal;
 
     private void Awake()
     {
@@ -38,13 +38,11 @@ public class PlayerMove : MonoBehaviour
         IfGrounded();
         WallSlide();
         PlayerMoving();
-
     }
 
     private void IfGrounded()
     {
-        // Ä³¸¯ÅÍ°¡ ¶¥ À§¿¡ ÀÖ´Ù¸é 
-        if (_chracterController.isGrounded) // °°Àº ÀÇ¹Ì·Î, if(_chracterController.collisionFlags == CollisionFlags.Below & CollisionFlags.Sides)
+        if (_chracterController.isGrounded)
         {
             _isRunning = false;
             _isRolling = false;
@@ -62,13 +60,11 @@ public class PlayerMove : MonoBehaviour
         Vector3 dir = new Vector3(h, 0, v);
         dir = dir.normalized;
         dir = Camera.main.transform.TransformDirection(dir);
-        // TransformDirection: Áö¿ª °ø°£ÀÇ º¤ÅÍ¸¦ ¿ùµå °ø°£ÀÇ º¤ÅÍ·Î ¹Ù²ãÁÖ´Â ÇÔ¼ö
 
-        // Áß·Â Àû¿ë
+        // ì¤‘ë ¥ ì ìš©
         _yVelocity += GRAVITY * Time.deltaTime;
         dir.y = _yVelocity;
 
-        // ÇÃ·¹ÀÌ¾î Á¡ÇÁ ±¸Çö
         if (Input.GetButtonDown("Jump") && _jumpCount < 2 && !_isWallSliding)
         {
             _yVelocity = JumpPower;
@@ -77,7 +73,7 @@ public class PlayerMove : MonoBehaviour
         }
 
 
-        // Shift Å° ´©¸£¸é -> ÇÃ·¹ÀÌ¾î ´Ş¸®±â ±¸Çö
+        // Shift í‚¤ ëˆ„ë¥´ë©´ ë‹¬ë¦¬ê¸°
         if (!_isWallSliding && (Input.GetKey(KeyCode.RightShift) || (Input.GetKey(KeyCode.LeftShift))) && _jumpCount == 0)
         {
             _chracterController.Move(dir * RunSpeed * Time.deltaTime);
@@ -92,11 +88,15 @@ public class PlayerMove : MonoBehaviour
             }
         }
 
-        // EÅ° ´©¸£¸é -> ÇÃ·¹ÀÌ¾î ±¸¸£±â ±¸Çö
+        // Q í‚¤ ëˆ„ë¥´ë©´ ë¡¤
         if (!_isWallSliding && Input.GetKey(KeyCode.Q) && _jumpCount == 0)
         {
             _chracterController.Move(dir * RollSpeed * Time.deltaTime);
             _isRolling = true;
+        }
+        else
+        {
+            _isRolling = false;
         }
     }
 
@@ -107,13 +107,14 @@ public class PlayerMove : MonoBehaviour
             _isWallSliding = false;
             return;
         }
-        // 1) Æò¸é ÀÌµ¿ ¹æÇâ Àç°è»ê
+
+        // 1) ë²½íƒ€ê¸° ì²´í¬
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
         Vector3 flatDir = new Vector3(h, 0f, v).normalized;
         flatDir = Camera.main.transform.TransformDirection(flatDir);
 
-        // 2) º® Á¢ÃË Ã¼Å©
+        // 2) ë²½íƒ€ê¸° ì²´í¬
         bool touchingWall = (_chracterController.collisionFlags & CollisionFlags.Sides) != 0;
         RaycastHit hit;
         bool rayHit = Physics.Raycast(
@@ -124,7 +125,7 @@ public class PlayerMove : MonoBehaviour
             WallLayerMask
         );
 
-        // 3) °øÁß + ÇÏ°­ Áß + º® Á¢ÃË ½Ã ½½¶óÀÌµå
+        // 3) ë•…ì— ìˆì§€ ì•Šê³ , ë²½ì— ë¶™ì–´ìˆê±°ë‚˜, ë²½ì— ë¶™ì–´ìˆê³ , ì¤‘ë ¥ì´ ì‘ìš©í•˜ê³  ìˆìœ¼ë©´
         if (!_chracterController.isGrounded
             && (touchingWall || rayHit)
             && _yVelocity < 0f)
@@ -133,7 +134,7 @@ public class PlayerMove : MonoBehaviour
             _wallNormal = rayHit ? hit.normal : -flatDir;
             _yVelocity = Mathf.Max(_yVelocity, -WallSlideSpeed);
 
-            // 4) ½½¶óÀÌµå Áß Á¡ÇÁ ¡æ º® Á¡ÇÁ
+            // 4) ì í”„ í‚¤ ëˆ„ë¥´ë©´ ë²½íƒ€ê¸° ì í”„
             if (Input.GetButtonDown("Jump"))
             {
                 _yVelocity = WallJumpForce.y;
@@ -152,10 +153,10 @@ public class PlayerMove : MonoBehaviour
 
     public void ForceFallFromWall()
     {
-        // 1) º® ½½¶óÀÌµå »óÅÂ ÇØÁ¦
+        // 1) ë²½íƒ€ê¸° ì²´í¬ í•´ì œ
         _forceFallFromWall = true;
         _isWallSliding = false;
-        // 2) Áï½Ã ÀÚÀ¯ ³«ÇÏÇÏµµ·Ï ¼öÁ÷ ¼Óµµ ¸®¼Â
+        // 2) ì¤‘ë ¥ ì ìš© í•´ì œ
         _yVelocity = 0f;
     }
 }
