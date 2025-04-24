@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class BombCount : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class BombCount : MonoBehaviour
 
     private void Update()
     {
+        if (EventSystem.current.IsPointerOverGameObject()) return;
         BombState();
     }
 

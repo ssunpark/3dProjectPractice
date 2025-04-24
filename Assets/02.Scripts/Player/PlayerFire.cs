@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerFire : MonoBehaviour
 {
@@ -24,15 +25,40 @@ public class PlayerFire : MonoBehaviour
 
     private void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        LockCursor();
         InitializePool();
     }
 
     private void Update()
     {
+        if (EventSystem.current.IsPointerOverGameObject()) return;
+        HandleCursorToggle();
         _bulletTimer += Time.deltaTime;
         ThrowBullet();
         ThrowBomb();
+    }
+
+    private void HandleCursorToggle()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            UnlockCursor();
+        }
+        else if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            LockCursor();
+        }
+    }
+
+    private void LockCursor()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+    private void UnlockCursor()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     private void InitializePool()
@@ -82,7 +108,16 @@ public class PlayerFire : MonoBehaviour
                         damage.Value = 10;
                         damage.From = this.gameObject;
                         enemy.TakeDamage(damage);
-                        Debug.Log($"{damage}");
+                        Debug.Log($"Enemy: {damage}");
+                    }
+                    if (hitInfo.collider.gameObject.CompareTag("Barrel"))
+                    {
+                        Barrel barrel = hitInfo.collider.GetComponent<Barrel>();
+                        Damage damage = new Damage();
+                        damage.Value = 1;
+                        damage.From = this.gameObject;
+                        barrel.TakeDamage(damage);
+                        Debug.Log($"Barrel: {damage}");
                     }
                 }
                 _bulletTimer = 0f;

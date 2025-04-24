@@ -15,4 +15,4 @@ MonoBehaviour:
   CurrentHealth: 100
   MaxHealth: 200
   HealthDamage: 5
-  HealthGain: 2
+  HealthGain: 0

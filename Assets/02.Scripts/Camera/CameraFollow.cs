@@ -8,6 +8,5 @@ public class CameraFollow : MonoBehaviour
     {
         // 보간(interpoling), smoothing 기법이 들어갈 예정
         transform.position = Target.position;
-
     }
 }
