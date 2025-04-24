@@ -28,12 +28,6 @@ public class BulletCount : MonoBehaviour
             {
                 CancelReload();
             }
-
-            if (_bulletCurrentCount > 0)
-            {
-                _bulletCurrentCount--;
-                UpdateUI();
-            }
         }
 
         if (Input.GetKeyDown(KeyCode.R))
