@@ -103,21 +103,27 @@ public class PlayerFire : MonoBehaviour
 
                     if (hitInfo.collider.gameObject.CompareTag("Enemy"))
                     {
-                        Enemy enemy = hitInfo.collider.GetComponent<Enemy>();
-                        Damage damage = new Damage();
-                        damage.Value = 10;
-                        damage.From = this.gameObject;
-                        enemy.TakeDamage(damage);
-                        Debug.Log($"Enemy: {damage}");
+                        Enemy enemy = hitInfo.collider.GetComponentInParent<Enemy>();
+                        if (enemy != null)
+                        {
+                            Damage damage = new Damage();
+                            damage.Value = 10;
+                            damage.From = this.gameObject;
+                            enemy.TakeDamage(damage);
+                            Debug.Log($"Enemy: {damage}");
+                        }
                     }
                     if (hitInfo.collider.gameObject.CompareTag("Barrel"))
                     {
                         Barrel barrel = hitInfo.collider.GetComponent<Barrel>();
-                        Damage damage = new Damage();
-                        damage.Value = 1;
-                        damage.From = this.gameObject;
-                        barrel.TakeDamage(damage);
-                        Debug.Log($"Barrel: {damage}");
+                        if (barrel != null)
+                        {
+                            Damage damage = new Damage();
+                            damage.Value = 1;
+                            damage.From = this.gameObject;
+                            barrel.TakeDamage(damage);
+                            Debug.Log($"Barrel: {damage}");
+                        }
                     }
                 }
                 _bulletTimer = 0f;

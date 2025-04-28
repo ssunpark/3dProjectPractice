@@ -944,3 +944,441 @@ Assets/JMO Assets/WarFX/Shaders/WFX_S Smoke Scroll.shader.meta
 Assets/JMO Assets/WarFX/Spawn System.meta
 Assets/JMO Assets/WarFX/Spawn System/CFX_SpawnSystem.cs
 Assets/JMO Assets/WarFX/Spawn System/CFX_SpawnSystem.cs.meta
+ProjectSettings/TagManager.asset
+ProjectSettings/QualitySettings.asset
+Assets/Zombie/Textures/Zombie_nm.png.meta
+Assets/Zombie/Textures/Zombie_nm.png
+Assets/Zombie/Textures/Zombie_metallic.tga.meta
+Assets/Zombie/Textures/Zombie_metallic.tga
+Assets/Zombie/Textures/zombie_emission.tga.meta
+Assets/Zombie/Textures/zombie_emission.tga
+Assets/Zombie/Textures/Zombie_ao.png.meta
+Assets/Zombie/Textures/Zombie_ao.png
+Assets/Zombie/Textures/Zombie.tga.meta
+Assets/Zombie/Textures/Zombie.tga
+Assets/Zombie/Textures.meta
+Assets/Zombie/ScenePrefabs.unity.meta
+Assets/Zombie/ScenePrefabs.unity
+Assets/Zombie/Prefabs/Zombie3.prefab.meta
+Assets/Zombie/Prefabs/Zombie3.prefab
+Assets/Zombie/Prefabs/Zombie2.prefab.meta
+Assets/Zombie/Prefabs/Zombie2.prefab
+Assets/Zombie/Prefabs/Zombie1.prefab.meta
+Assets/Zombie/Prefabs/Zombie1.prefab
+Assets/Zombie/Prefabs.meta
+Assets/Zombie/Materials/Zombie.mat.meta
+Assets/Zombie/Materials/Zombie.mat
+Assets/Zombie/Materials/Plane.mat.meta
+Assets/Zombie/Materials/Plane.mat
+Assets/Zombie/Materials.meta
+Assets/Zombie/FBXs/Zombie3.FBX.meta
+Assets/Zombie/FBXs/Zombie3.FBX
+Assets/Zombie/FBXs/Zombie2.FBX.meta
+Assets/Zombie/FBXs/Zombie2.FBX
+Assets/Zombie/FBXs/Zombie1.FBX.meta
+Assets/Zombie/FBXs/Zombie1.FBX
+Assets/Zombie/FBXs.meta
+Assets/Zombie/Animations/Zombie@Z_Walk_InPlace.FBX.meta
+Assets/Zombie/Animations/Zombie@Z_Walk_InPlace.FBX
+Assets/Zombie/Animations/Zombie@Z_Walk1_InPlace.FBX.meta
+Assets/Zombie/Animations/Zombie@Z_Walk1_InPlace.FBX
+Assets/Zombie/Animations/Zombie@Z_Walk1.FBX.meta
+Assets/Zombie/Animations/Zombie@Z_Walk1.FBX
+Assets/Zombie/Animations/Zombie@Z_Walk.FBX.meta
+Assets/Zombie/Animations/Zombie@Z_Walk.FBX
+Assets/Zombie/Animations/Zombie@Z_Run_InPlace.FBX.meta
+Assets/Zombie/Animations/Zombie@Z_Run_InPlace.FBX
+Assets/Zombie/Animations/Zombie@Z_Run.FBX.meta
+Assets/Zombie/Animations/Zombie@Z_Run.FBX
+Assets/Zombie/Animations/Zombie@Z_Idle.FBX.meta
+Assets/Zombie/Animations/Zombie@Z_Idle.FBX
+Assets/Zombie/Animations/Zombie@Z_FallingForward.FBX.meta
+Assets/Zombie/Animations/Zombie@Z_FallingForward.FBX
+Assets/Zombie/Animations/Zombie@Z_FallingBack.FBX.meta
+Assets/Zombie/Animations/Zombie@Z_FallingBack.FBX
+Assets/Zombie/Animations/Zombie@Z_Attack.FBX.meta
+Assets/Zombie/Animations/Zombie@Z_Attack.FBX
+Assets/Zombie/Animations/Zombie.controller.meta
+Assets/Zombie/Animations/Zombie.controller
+Assets/Zombie/Animations/Z_Walk_InPlace.anim.meta
+Assets/Zombie/Animations/Z_Walk_InPlace.anim
+Assets/Zombie/Animations/Z_Walk1_InPlace.anim.meta
+Assets/Zombie/Animations/Z_Walk1_InPlace.anim
+Assets/Zombie/Animations/Z_Walk1.anim.meta
+Assets/Zombie/Animations/Z_Walk1.anim
+Assets/Zombie/Animations/Z_Walk.anim.meta
+Assets/Zombie/Animations/Z_Walk.anim
+Assets/Zombie/Animations/Z_Run_InPlace.anim.meta
+Assets/Zombie/Animations/Z_Run_InPlace.anim
+Assets/Zombie/Animations/Z_Run.anim.meta
+Assets/Zombie/Animations/Z_Run.anim
+Assets/Zombie/Animations/Z_Idle.anim.meta
+Assets/Zombie/Animations/Z_Idle.anim
+Assets/Zombie/Animations/Z_FallingForward.anim.meta
+Assets/Zombie/Animations/Z_FallingForward.anim
+Assets/Zombie/Animations/Z_FallingBack.anim.meta
+Assets/Zombie/Animations/Z_FallingBack.anim
+Assets/Zombie/Animations/Z_Attack.anim.meta
+Assets/Zombie/Animations/Z_Attack.anim
+Assets/Zombie/Animations.meta
+Assets/Zombie.meta
+Assets/Workshop/etc/Materials/Trees.mat
+Assets/Workshop/etc/Materials/Buildings.mat
+Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Fallback.asset
+Assets/Scalable Grid Prototype Materials/Textures/prototype_normal.png.meta
+Assets/Scalable Grid Prototype Materials/Textures/prototype_normal.png
+Assets/Scalable Grid Prototype Materials/Textures/1x1_grid_quarter_lines_numbered.png.meta
+Assets/Scalable Grid Prototype Materials/Textures/1x1_grid_quarter_lines_numbered.png
+Assets/Scalable Grid Prototype Materials/Textures/1x1_grid_quarter_lines.png.meta
+Assets/Scalable Grid Prototype Materials/Textures/1x1_grid_quarter_lines.png
+Assets/Scalable Grid Prototype Materials/Textures/1x1_grid_numbered.png.meta
+Assets/Scalable Grid Prototype Materials/Textures/1x1_grid_numbered.png
+Assets/Scalable Grid Prototype Materials/Textures/1x1_grid.png.meta
+Assets/Scalable Grid Prototype Materials/Textures/1x1_grid.png
+Assets/Scalable Grid Prototype Materials/Textures/1x1_checkerboard.png.meta
+Assets/Scalable Grid Prototype Materials/Textures/1x1_checkerboard.png
+Assets/Scalable Grid Prototype Materials/Textures.meta
+Assets/Scalable Grid Prototype Materials/Template Scenes/VolumeProfiles/Gray_SampleSceneProfile.asset.meta
+Assets/Scalable Grid Prototype Materials/Template Scenes/VolumeProfiles/Gray_SampleSceneProfile.asset
+Assets/Scalable Grid Prototype Materials/Template Scenes/VolumeProfiles/Dark_SampleSceneProfile.asset.meta
+Assets/Scalable Grid Prototype Materials/Template Scenes/VolumeProfiles/Dark_SampleSceneProfile.asset
+Assets/Scalable Grid Prototype Materials/Template Scenes/VolumeProfiles/Blue_SampleSceneProfile.asset.meta
+Assets/Scalable Grid Prototype Materials/Template Scenes/VolumeProfiles/Blue_SampleSceneProfile.asset
+Assets/Scalable Grid Prototype Materials/Template Scenes/VolumeProfiles.meta
+Assets/Scalable Grid Prototype Materials/Template Scenes/Gray_SampleScene.unity.meta
+Assets/Scalable Grid Prototype Materials/Template Scenes/Gray_SampleScene.unity
+Assets/Scalable Grid Prototype Materials/Template Scenes/Dark_SampleScene.unity.meta
+Assets/Scalable Grid Prototype Materials/Template Scenes/Dark_SampleScene.unity
+Assets/Scalable Grid Prototype Materials/Template Scenes/Blue_SampleScene.unity.meta
+Assets/Scalable Grid Prototype Materials/Template Scenes/Blue_SampleScene.unity
+Assets/Scalable Grid Prototype Materials/Template Scenes.meta
+Assets/Scalable Grid Prototype Materials/ShaderGraphs/ScaleTilingShader.shadergraph.meta
+Assets/Scalable Grid Prototype Materials/ShaderGraphs/ScaleTilingShader.shadergraph
+Assets/Scalable Grid Prototype Materials/ShaderGraphs.meta
+Assets/Scalable Grid Prototype Materials/Materials/Yellow_Prototype.mat.meta
+Assets/Scalable Grid Prototype Materials/Materials/Yellow_Prototype.mat
+Assets/Scalable Grid Prototype Materials/Materials/White_Prototype.mat.meta
+Assets/Scalable Grid Prototype Materials/Materials/White_Prototype.mat
+Assets/Scalable Grid Prototype Materials/Materials/Violet_Prototype.mat.meta
+Assets/Scalable Grid Prototype Materials/Materials/Violet_Prototype.mat
+Assets/Scalable Grid Prototype Materials/Materials/Red_Prototype.mat.meta
+Assets/Scalable Grid Prototype Materials/Materials/Red_Prototype.mat
+Assets/Scalable Grid Prototype Materials/Materials/Orange_Prototype.mat.meta
+Assets/Scalable Grid Prototype Materials/Materials/Orange_Prototype.mat
+Assets/Scalable Grid Prototype Materials/Materials/Mantis_Prototype.mat.meta
+Assets/Scalable Grid Prototype Materials/Materials/Mantis_Prototype.mat
+Assets/Scalable Grid Prototype Materials/Materials/Light_Sea_Green_Prototype.mat.meta
+Assets/Scalable Grid Prototype Materials/Materials/Light_Sea_Green_Prototype.mat
+Assets/Scalable Grid Prototype Materials/Materials/Light_Gray_Prototype.mat.meta
+Assets/Scalable Grid Prototype Materials/Materials/Light_Gray_Prototype.mat
+Assets/Scalable Grid Prototype Materials/Materials/Ground/Gray_Ground_Prototype.mat.meta
+Assets/Scalable Grid Prototype Materials/Materials/Ground/Gray_Ground_Prototype.mat
+Assets/Scalable Grid Prototype Materials/Materials/Ground/DarkGray_Ground_Prototype.mat.meta
+Assets/Scalable Grid Prototype Materials/Materials/Ground/DarkGray_Ground_Prototype.mat
+Assets/Scalable Grid Prototype Materials/Materials/Ground/Blue_Ground_Prototype.mat.meta
+Assets/Scalable Grid Prototype Materials/Materials/Ground/Blue_Ground_Prototype.mat
+Assets/Scalable Grid Prototype Materials/Materials/Ground.meta
+Assets/Scalable Grid Prototype Materials/Materials/Green_Prototype.mat.meta
+Assets/Scalable Grid Prototype Materials/Materials/Green_Prototype.mat
+Assets/Scalable Grid Prototype Materials/Materials/Gray_Prototype.mat.meta
+Assets/Scalable Grid Prototype Materials/Materials/Gray_Prototype.mat
+Assets/Scalable Grid Prototype Materials/Materials/Dark_Gray_Prototype.mat.meta
+Assets/Scalable Grid Prototype Materials/Materials/Dark_Gray_Prototype.mat
+Assets/Scalable Grid Prototype Materials/Materials/Dark_Blue_Prototype.mat.meta
+Assets/Scalable Grid Prototype Materials/Materials/Dark_Blue_Prototype.mat
+Assets/Scalable Grid Prototype Materials/Materials/Blue_Sapphire_Prototype.mat.meta
+Assets/Scalable Grid Prototype Materials/Materials/Blue_Sapphire_Prototype.mat
+Assets/Scalable Grid Prototype Materials/Materials/Blue_Prototype.mat.meta
+Assets/Scalable Grid Prototype Materials/Materials/Blue_Prototype.mat
+Assets/Scalable Grid Prototype Materials/Materials/Black_Prototype.mat.meta
+Assets/Scalable Grid Prototype Materials/Materials/Black_Prototype.mat
+Assets/Scalable Grid Prototype Materials/Materials.meta
+Assets/Scalable Grid Prototype Materials/Demo Scene/Material Demo Scene.unity.meta
+Assets/Scalable Grid Prototype Materials/Demo Scene/Material Demo Scene.unity
+Assets/Scalable Grid Prototype Materials/Demo Scene/Material Demo Scene HDRP.unity.meta
+Assets/Scalable Grid Prototype Materials/Demo Scene/Material Demo Scene HDRP.unity
+Assets/Scalable Grid Prototype Materials/Demo Scene.meta
+Assets/Scalable Grid Prototype Materials.meta
+Assets/Mixamo/Magic Pack/Demo/Tile.jpg.meta
+Assets/Mixamo/Magic Pack/Demo/Tile.jpg
+Assets/Mixamo/Magic Pack/Demo/Floor.mat.meta
+Assets/Mixamo/Magic Pack/Demo/Floor.mat
+Assets/Mixamo/Magic Pack/Demo/DemoSettings.lighting.meta
+Assets/Mixamo/Magic Pack/Demo/DemoSettings.lighting
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_9.controller.meta
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_9.controller
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_8.controller.meta
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_8.controller
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_7.controller.meta
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_7.controller
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_6.controller.meta
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_6.controller
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_56.controller.meta
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_56.controller
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_55.controller.meta
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_55.controller
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_54.controller.meta
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_54.controller
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_53.controller.meta
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_53.controller
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_52.controller.meta
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_52.controller
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_51.controller.meta
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_51.controller
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_50.controller.meta
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_50.controller
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_5.controller.meta
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_5.controller
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_49.controller.meta
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_49.controller
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_48.controller.meta
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_48.controller
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_47.controller.meta
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_47.controller
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_46.controller.meta
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_46.controller
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_45.controller.meta
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_45.controller
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_44.controller.meta
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_44.controller
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_43.controller.meta
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_43.controller
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_42.controller.meta
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_42.controller
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_41.controller.meta
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_41.controller
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_40.controller.meta
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_40.controller
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_4.controller.meta
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_4.controller
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_39.controller.meta
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_39.controller
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_38.controller.meta
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_38.controller
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_37.controller.meta
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_37.controller
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_36.controller.meta
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_36.controller
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_35.controller.meta
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_35.controller
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_34.controller.meta
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_34.controller
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_33.controller.meta
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_33.controller
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_32.controller.meta
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_32.controller
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_31.controller.meta
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_31.controller
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_30.controller.meta
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_30.controller
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_3.controller.meta
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_3.controller
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_29.controller.meta
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_29.controller
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_28.controller.meta
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_28.controller
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_27.controller.meta
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_27.controller
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_26.controller.meta
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_26.controller
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_25.controller.meta
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_25.controller
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_24.controller.meta
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_24.controller
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_23.controller.meta
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_23.controller
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_22.controller.meta
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_22.controller
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_21.controller.meta
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_21.controller
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_20.controller.meta
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_20.controller
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_2.controller.meta
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_2.controller
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_19.controller.meta
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_19.controller
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_18.controller.meta
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_18.controller
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_17.controller.meta
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_17.controller
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_16.controller.meta
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_16.controller
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_15.controller.meta
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_15.controller
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_14.controller.meta
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_14.controller
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_13.controller.meta
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_13.controller
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_12.controller.meta
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_12.controller
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_11.controller.meta
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_11.controller
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_10.controller.meta
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_10.controller
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_1.controller.meta
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers/Alpha@Alpha_1.controller
+Assets/Mixamo/Magic Pack/Demo/DemoAnimatorControllers.meta
+Assets/Mixamo/Magic Pack/Demo/Demo.unity.meta
+Assets/Mixamo/Magic Pack/Demo/Demo.unity
+Assets/Mixamo/Magic Pack/Demo/CameraScroll.cs.meta
+Assets/Mixamo/Magic Pack/Demo/CameraScroll.cs
+Assets/Mixamo/Magic Pack/Demo.meta
+Assets/Mixamo/Magic Pack/Characters/Materials/Beta_Joints_MAT.mat.meta
+Assets/Mixamo/Magic Pack/Characters/Materials/Beta_Joints_MAT.mat
+Assets/Mixamo/Magic Pack/Characters/Materials/Beta_Body_MAT.mat.meta
+Assets/Mixamo/Magic Pack/Characters/Materials/Beta_Body_MAT.mat
+Assets/Mixamo/Magic Pack/Characters/Materials/Alpha_Joints_MAT.mat.meta
+Assets/Mixamo/Magic Pack/Characters/Materials/Alpha_Joints_MAT.mat
+Assets/Mixamo/Magic Pack/Characters/Materials/Alpha_Body_MAT.mat.meta
+Assets/Mixamo/Magic Pack/Characters/Materials/Alpha_Body_MAT.mat
+Assets/Mixamo/Magic Pack/Characters/Materials.meta
+Assets/Mixamo/Magic Pack/Characters/Beta@Beta.fbx.meta
+Assets/Mixamo/Magic Pack/Characters/Beta@Beta.fbx
+Assets/Mixamo/Magic Pack/Characters/Alpha@Alpha.fbx.meta
+Assets/Mixamo/Magic Pack/Characters/Alpha@Alpha.fbx
+Assets/Mixamo/Magic Pack/Characters.meta
+Assets/Mixamo/Magic Pack/Animations/Standing_Walk_Right.anim.meta
+Assets/Mixamo/Magic Pack/Animations/Standing_Walk_Right.anim
+Assets/Mixamo/Magic Pack/Animations/Standing_Walk_Left.anim.meta
+Assets/Mixamo/Magic Pack/Animations/Standing_Walk_Left.anim
+Assets/Mixamo/Magic Pack/Animations/Standing_Walk_Forward.anim.meta
+Assets/Mixamo/Magic Pack/Animations/Standing_Walk_Forward.anim
+Assets/Mixamo/Magic Pack/Animations/Standing_Walk_Back.anim.meta
+Assets/Mixamo/Magic Pack/Animations/Standing_Walk_Back.anim
+Assets/Mixamo/Magic Pack/Animations/Standing_Turn_Right_90.anim.meta
+Assets/Mixamo/Magic Pack/Animations/Standing_Turn_Right_90.anim
+Assets/Mixamo/Magic Pack/Animations/Standing_Turn_Left_90.anim.meta
+Assets/Mixamo/Magic Pack/Animations/Standing_Turn_Left_90.anim
+Assets/Mixamo/Magic Pack/Animations/Standing_Sprint_Forward.anim.meta
+Assets/Mixamo/Magic Pack/Animations/Standing_Sprint_Forward.anim
+Assets/Mixamo/Magic Pack/Animations/Standing_Run_Right.anim.meta
+Assets/Mixamo/Magic Pack/Animations/Standing_Run_Right.anim
+Assets/Mixamo/Magic Pack/Animations/Standing_Run_Left.anim.meta
+Assets/Mixamo/Magic Pack/Animations/Standing_Run_Left.anim
+Assets/Mixamo/Magic Pack/Animations/Standing_Run_Forward.anim.meta
+Assets/Mixamo/Magic Pack/Animations/Standing_Run_Forward.anim
+Assets/Mixamo/Magic Pack/Animations/Standing_Run_Back.anim.meta
+Assets/Mixamo/Magic Pack/Animations/Standing_Run_Back.anim
+Assets/Mixamo/Magic Pack/Animations/Standing_React_Small_From_Right.anim.meta
+Assets/Mixamo/Magic Pack/Animations/Standing_React_Small_From_Right.anim
+Assets/Mixamo/Magic Pack/Animations/Standing_React_Small_From_Left.anim.meta
+Assets/Mixamo/Magic Pack/Animations/Standing_React_Small_From_Left.anim
+Assets/Mixamo/Magic Pack/Animations/Standing_React_Small_From_Front.anim.meta
+Assets/Mixamo/Magic Pack/Animations/Standing_React_Small_From_Front.anim
+Assets/Mixamo/Magic Pack/Animations/Standing_React_Small_From_Back.anim.meta
+Assets/Mixamo/Magic Pack/Animations/Standing_React_Small_From_Back.anim
+Assets/Mixamo/Magic Pack/Animations/Standing_React_Large_From_Right.anim.meta
+Assets/Mixamo/Magic Pack/Animations/Standing_React_Large_From_Right.anim
+Assets/Mixamo/Magic Pack/Animations/Standing_React_Large_From_Left.anim.meta
+Assets/Mixamo/Magic Pack/Animations/Standing_React_Large_From_Left.anim
+Assets/Mixamo/Magic Pack/Animations/Standing_React_Large_From_Front.anim.meta
+Assets/Mixamo/Magic Pack/Animations/Standing_React_Large_From_Front.anim
+Assets/Mixamo/Magic Pack/Animations/Standing_React_Large_From_Back.anim.meta
+Assets/Mixamo/Magic Pack/Animations/Standing_React_Large_From_Back.anim
+Assets/Mixamo/Magic Pack/Animations/Standing_React_Death_Right.anim.meta
+Assets/Mixamo/Magic Pack/Animations/Standing_React_Death_Right.anim
+Assets/Mixamo/Magic Pack/Animations/Standing_React_Death_Left.anim.meta
+Assets/Mixamo/Magic Pack/Animations/Standing_React_Death_Left.anim
+Assets/Mixamo/Magic Pack/Animations/Standing_React_Death_Forward.anim.meta
+Assets/Mixamo/Magic Pack/Animations/Standing_React_Death_Forward.anim
+Assets/Mixamo/Magic Pack/Animations/Standing_React_Death_Backward.anim.meta
+Assets/Mixamo/Magic Pack/Animations/Standing_React_Death_Backward.anim
+Assets/Mixamo/Magic Pack/Animations/Standing_Land_To_Standing_Idle.anim.meta
+Assets/Mixamo/Magic Pack/Animations/Standing_Land_To_Standing_Idle.anim
+Assets/Mixamo/Magic Pack/Animations/Standing_Jump_Running_Landing.anim.meta
+Assets/Mixamo/Magic Pack/Animations/Standing_Jump_Running_Landing.anim
+Assets/Mixamo/Magic Pack/Animations/Standing_Jump_Running.anim.meta
+Assets/Mixamo/Magic Pack/Animations/Standing_Jump_Running.anim
+Assets/Mixamo/Magic Pack/Animations/Standing_Jump.anim.meta
+Assets/Mixamo/Magic Pack/Animations/Standing_Jump.anim
+Assets/Mixamo/Magic Pack/Animations/Standing_Idle_To_Crouch.anim.meta
+Assets/Mixamo/Magic Pack/Animations/Standing_Idle_To_Crouch.anim
+Assets/Mixamo/Magic Pack/Animations/Standing_Idle_04.anim.meta
+Assets/Mixamo/Magic Pack/Animations/Standing_Idle_04.anim
+Assets/Mixamo/Magic Pack/Animations/Standing_Idle_03.anim.meta
+Assets/Mixamo/Magic Pack/Animations/Standing_Idle_03.anim
+Assets/Mixamo/Magic Pack/Animations/standing_idle_02.anim.meta
+Assets/Mixamo/Magic Pack/Animations/standing_idle_02.anim
+Assets/Mixamo/Magic Pack/Animations/standing_idle.anim.meta
+Assets/Mixamo/Magic Pack/Animations/standing_idle.anim
+Assets/Mixamo/Magic Pack/Animations/Standing_Block_Start.anim.meta
+Assets/Mixamo/Magic Pack/Animations/Standing_Block_Start.anim
+Assets/Mixamo/Magic Pack/Animations/Standing_Block_React_Large.anim.meta
+Assets/Mixamo/Magic Pack/Animations/Standing_Block_React_Large.anim
+Assets/Mixamo/Magic Pack/Animations/Standing_Block_Idle.anim.meta
+Assets/Mixamo/Magic Pack/Animations/Standing_Block_Idle.anim
+Assets/Mixamo/Magic Pack/Animations/Standing_Block_End.anim.meta
+Assets/Mixamo/Magic Pack/Animations/Standing_Block_End.anim
+Assets/Mixamo/Magic Pack/Animations/Standing_2H_Magic_Attack_05.anim.meta
+Assets/Mixamo/Magic Pack/Animations/Standing_2H_Magic_Attack_05.anim
+Assets/Mixamo/Magic Pack/Animations/Standing_2H_Magic_Attack_04.anim.meta
+Assets/Mixamo/Magic Pack/Animations/Standing_2H_Magic_Attack_04.anim
+Assets/Mixamo/Magic Pack/Animations/Standing_2H_Magic_Attack_03.anim.meta
+Assets/Mixamo/Magic Pack/Animations/Standing_2H_Magic_Attack_03.anim
+Assets/Mixamo/Magic Pack/Animations/Standing_2H_Magic_Attack_02.anim.meta
+Assets/Mixamo/Magic Pack/Animations/Standing_2H_Magic_Attack_02.anim
+Assets/Mixamo/Magic Pack/Animations/Standing_2H_Magic_Attack_01.anim.meta
+Assets/Mixamo/Magic Pack/Animations/Standing_2H_Magic_Attack_01.anim
+Assets/Mixamo/Magic Pack/Animations/Standing_2H_Magic_Area_Attack_02.anim.meta
+Assets/Mixamo/Magic Pack/Animations/Standing_2H_Magic_Area_Attack_02.anim
+Assets/Mixamo/Magic Pack/Animations/Standing_2H_Magic_Area_Attack_01.anim.meta
+Assets/Mixamo/Magic Pack/Animations/Standing_2H_Magic_Area_Attack_01.anim
+Assets/Mixamo/Magic Pack/Animations/Standing_2H_Cast_Spell_01.anim.meta
+Assets/Mixamo/Magic Pack/Animations/Standing_2H_Cast_Spell_01.anim
+Assets/Mixamo/Magic Pack/Animations/Standing_1H_Magic_Attack_03.anim.meta
+Assets/Mixamo/Magic Pack/Animations/Standing_1H_Magic_Attack_03.anim
+Assets/Mixamo/Magic Pack/Animations/Standing_1H_Magic_Attack_02.anim.meta
+Assets/Mixamo/Magic Pack/Animations/Standing_1H_Magic_Attack_02.anim
+Assets/Mixamo/Magic Pack/Animations/standing_1H_cast_spell_01.anim.meta
+Assets/Mixamo/Magic Pack/Animations/standing_1H_cast_spell_01.anim
+Assets/Mixamo/Magic Pack/Animations/Crouch_Walk_Right.anim.meta
+Assets/Mixamo/Magic Pack/Animations/Crouch_Walk_Right.anim
+Assets/Mixamo/Magic Pack/Animations/Crouch_Walk_Left.anim.meta
+Assets/Mixamo/Magic Pack/Animations/Crouch_Walk_Left.anim
+Assets/Mixamo/Magic Pack/Animations/Crouch_Walk_Forward.anim.meta
+Assets/Mixamo/Magic Pack/Animations/Crouch_Walk_Forward.anim
+Assets/Mixamo/Magic Pack/Animations/Crouch_Walk_Back.anim.meta
+Assets/Mixamo/Magic Pack/Animations/Crouch_Walk_Back.anim
+Assets/Mixamo/Magic Pack/Animations/Crouch_Turn_Right_90.anim.meta
+Assets/Mixamo/Magic Pack/Animations/Crouch_Turn_Right_90.anim
+Assets/Mixamo/Magic Pack/Animations/Crouch_Turn_Left_90.anim.meta
+Assets/Mixamo/Magic Pack/Animations/Crouch_Turn_Left_90.anim
+Assets/Mixamo/Magic Pack/Animations/Crouch_To_Standing_Idle.anim.meta
+Assets/Mixamo/Magic Pack/Animations/Crouch_To_Standing_Idle.anim
+Assets/Mixamo/Magic Pack/Animations/Crouch_Idle.anim.meta
+Assets/Mixamo/Magic Pack/Animations/Crouch_Idle.anim
+Assets/Mixamo/Magic Pack/Animations.meta
+Assets/Mixamo/Magic Pack.meta
+Assets/Mixamo.meta
+Assets/LowPolySoldiers_demo/models/Soldier_demo.FBX.meta
+Assets/LowPolySoldiers_demo/models/Soldier_demo.FBX
+Assets/LowPolySoldiers_demo/models/Materials/demo_weapon.tga.meta
+Assets/LowPolySoldiers_demo/models/Materials/demo_weapon.tga
+Assets/LowPolySoldiers_demo/models/Materials/demo_weapon.mat.meta
+Assets/LowPolySoldiers_demo/models/Materials/demo_weapon.mat
+Assets/LowPolySoldiers_demo/models/Materials/demo_soldier_512.tga.meta
+Assets/LowPolySoldiers_demo/models/Materials/demo_soldier_512.tga
+Assets/LowPolySoldiers_demo/models/Materials/demo_soldier_512.mat.meta
+Assets/LowPolySoldiers_demo/models/Materials/demo_soldier_512.mat
+Assets/LowPolySoldiers_demo/models/Materials.meta
+Assets/LowPolySoldiers_demo/models.meta
+Assets/LowPolySoldiers_demo/animation/demo_combat_shoot.FBX.meta
+Assets/LowPolySoldiers_demo/animation/demo_combat_shoot.FBX
+Assets/LowPolySoldiers_demo/animation/demo_combat_run.FBX.meta
+Assets/LowPolySoldiers_demo/animation/demo_combat_run.FBX
+Assets/LowPolySoldiers_demo/animation/demo_combat_idle.FBX.meta
+Assets/LowPolySoldiers_demo/animation/demo_combat_idle.FBX
+Assets/LowPolySoldiers_demo/animation.meta
+Assets/LowPolySoldiers_demo.meta
+Assets/07.Animations/Zombie/ZombieAnimatorController.controller.meta
+Assets/07.Animations/Zombie/ZombieAnimatorController.controller
+Assets/07.Animations/Zombie.meta
+Assets/07.Animations/Player/PlayerShotMask.mask.meta
+Assets/07.Animations/Player/PlayerShotMask.mask
+Assets/07.Animations/Player/PlayerAnimationController.controller.meta
+Assets/07.Animations/Player/PlayerAnimationController.controller
+Assets/07.Animations/Player.meta
+Assets/07.Animations/Injured Run.fbx.meta
+Assets/07.Animations/Injured Run.fbx
+Assets/07.Animations/Injured Idle.fbx.meta
+Assets/07.Animations/Injured Idle.fbx

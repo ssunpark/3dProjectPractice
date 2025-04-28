@@ -4,7 +4,7 @@ public class CameraRotate : MonoBehaviour
 {
     // 카메라 회전 스크립트
     // 목표: 마우스를 조작하면 카메라를 그 방향으로 회전시키고 싶다.
-    public float RotationSpeed = 500f;
+    public float RotationSpeed = 250f;
 
     // 카메라 각도는 0도에서부터 시작한다고 기준을 세운다.
     private float _rotationX = 0;
@@ -26,7 +26,8 @@ public class CameraRotate : MonoBehaviour
         _rotationY = Mathf.Clamp(_rotationY, -90f, 90f);
 
         // 3. 회전 방향으로 회전시킨다
-        transform.eulerAngles = new Vector3(-_rotationY, _rotationX, 0);
+        transform.rotation = Quaternion.Euler(-_rotationY, _rotationX, 0);
+        //transform.eulerAngles = new Vector3(-_rotationY, _rotationX, 0);
         //Vector3 dir = new Vector3(-mouseY, mouseX, 0);
 
         //// 3. 카메라를 그 방향으로 회전한다.

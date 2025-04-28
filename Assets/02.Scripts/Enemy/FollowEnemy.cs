@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class FollowEnemy : MonoBehaviour
 {
@@ -24,7 +25,8 @@ public class FollowEnemy : MonoBehaviour
     // 2. 현재 상태를 지정한다.
     public EnemyState CurrentState = EnemyState.Idle;
 
-    private GameObject _player;                       // 플레이어
+    private GameObject _player;
+    public GameObject _bloodScreen;
     private CharacterController _characterController; // 캐릭터 컨트롤러
     private NavMeshAgent _agent;                      // 네브매시 에이전트
     private Vector3 _startPosition;                   // 시작 위치
@@ -153,6 +155,7 @@ public class FollowEnemy : MonoBehaviour
         if (_attackTimer >= AttackCooltime)
         {
             Debug.Log("플레이어 공격!");
+            StartCoroutine(Attack_Coroutine());
             _attackTimer = 0f;
         }
     }
@@ -170,6 +173,37 @@ public class FollowEnemy : MonoBehaviour
         }
         Debug.Log("상태전환: Damaged -> Trace");
         CurrentState = EnemyState.Trace;
+    }
+
+    private IEnumerator Attack_Coroutine()
+    {
+        // 이미지 알파 초기화
+        Image image = _bloodScreen.GetComponent<Image>();
+        Color color = image.color;
+        color.a = 1f;
+        image.color = color;
+
+        // 일단 바로 보여줌
+        _bloodScreen.SetActive(true);
+
+        // 잠깐 유지
+        yield return new WaitForSeconds(0.2f);
+
+        // 페이드아웃
+        float fadeDuration = 0.5f;
+        float timer = 0f;
+        while (timer < fadeDuration)
+        {
+            timer += Time.deltaTime;
+            float t = timer / fadeDuration;
+            float newAlpha = Mathf.Lerp(1f, 0f, t);
+            image.color = new Color(color.r, color.g, color.b, newAlpha);
+            yield return null;
+        }
+
+        // 확실히 끄고 알파도 0으로 고정
+        _bloodScreen.SetActive(false);
+        image.color = new Color(color.r, color.g, color.b, 0f);
     }
 
     private IEnumerator Die_Coroutine()

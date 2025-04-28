@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
@@ -27,14 +28,16 @@ public class Enemy : MonoBehaviour
     public EnemyState CurrentState = EnemyState.Idle;
 
     private GameObject _player;                       // 플레이어
+    public GameObject _bloodScreen;
     private CharacterController _characterController; // 캐릭터 컨트롤러
     private NavMeshAgent _agent;                      // 네브매시 에이전트
     private Vector3 _startPosition;                   // 시작 위치
     public Transform[] EnemyPatrolPoint; // 순찰할 때 돌아다닐 포인트들
     public Vector3 CurrentPatrolTarget;
+    public EnemyHealth _health;
 
     public float MoveSpeed = 3.3f;   // 이동 속도
-    public int Health = 100;
+    //public int Health = 100;
 
     public float FindDistance = 5f;     // 플레이어 발견 범위
     public float ReturnDistance = 5f;     // 적 복귀 범위
@@ -63,6 +66,11 @@ public class Enemy : MonoBehaviour
         _startPosition = transform.position;
         _characterController = GetComponent<CharacterController>();
         _player = GameObject.FindGameObjectWithTag("Player");
+    }
+
+    private void Awake()
+    {
+        _health = GetComponent<EnemyHealth>();
     }
 
 
@@ -100,11 +108,11 @@ public class Enemy : MonoBehaviour
                     Attack();
                     break;
                 }
-            case EnemyState.Damaged:
-                {
-                    //Damage();
-                    break;
-                }
+                //case EnemyState.Damaged:
+                //    {
+                //        Damage();
+                //        break;
+                //    }
         }
     }
 
@@ -114,14 +122,10 @@ public class Enemy : MonoBehaviour
         {
             return;
         }
-        Health -= damage.Value;
-        if (Health <= 0)
+        if (_health != null)
         {
-            CurrentState = EnemyState.Die;
-            StartCoroutine(Die_Coroutine());
-            return;
+            _health.TakeDamage(damage.Value);
         }
-
         if (CurrentState != EnemyState.Damaged)
         {
             CurrentState = EnemyState.Damaged;
@@ -259,6 +263,7 @@ public class Enemy : MonoBehaviour
         if (_attackTimer >= AttackCooltime)
         {
             Debug.Log("플레이어 공격!");
+            StartCoroutine(Attack_Coroutine());
             _attackTimer = 0f;
         }
     }
@@ -285,4 +290,41 @@ public class Enemy : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    private IEnumerator Attack_Coroutine()
+    {
+        // 이미지 알파 초기화
+        Image image = _bloodScreen.GetComponent<Image>();
+        Color color = image.color;
+        color.a = 1f;
+        image.color = color;
+
+        // 일단 바로 보여줌
+        _bloodScreen.SetActive(true);
+
+        // 잠깐 유지
+        yield return new WaitForSeconds(0.2f);
+
+        // 페이드아웃
+        float fadeDuration = 0.5f;
+        float timer = 0f;
+        while (timer < fadeDuration)
+        {
+            timer += Time.deltaTime;
+            float t = timer / fadeDuration;
+            float newAlpha = Mathf.Lerp(1f, 0f, t);
+            image.color = new Color(color.r, color.g, color.b, newAlpha);
+            yield return null;
+        }
+
+        // 확실히 끄고 알파도 0으로 고정
+        _bloodScreen.SetActive(false);
+        image.color = new Color(color.r, color.g, color.b, 0f);
+    }
+
+    public void OnDeath()
+    {
+        if (CurrentState == EnemyState.Die) return;
+        CurrentState = EnemyState.Die;
+        StartCoroutine(Die_Coroutine());
+    }
 }

@@ -7,32 +7,36 @@ public class PlayerHealth : MonoBehaviour
     public PlayerMove _playerMove;
     public UnityEvent<float> OnHealthChanged;
 
+    public float CurrentHealth = 100f; // 얘는 계속 변하니까 따로 안빼줌.
     // 슬라이더에 반영하려면 설정을 따로 해줘야 한다!!
     private void Start()
     {
-        stats.CurrentHealth = 100;
-        OnHealthChanged?.Invoke(stats.CurrentHealth);
+        OnHealthChanged?.Invoke(CurrentHealth);
     }
     private void Update()
     {
         HealthControl();
-        Debug.Log($"{stats.CurrentHealth}");
     }
 
     private void HealthControl()
     {
-        if (_playerMove._isRunning == true || _playerMove._isRolling == true || _playerMove._isWallSliding == true)
-        {
-            stats.CurrentHealth -= stats.HealthDamage * Time.deltaTime;
-        }
-        else
-        {
-            stats.CurrentHealth += stats.HealthGain * Time.deltaTime;
-        }
-        stats.CurrentHealth = Mathf.Clamp(stats.CurrentHealth, 0f, stats.MaxHealth);
-        OnHealthChanged?.Invoke(stats.CurrentHealth);
+        bool isConsuming = _playerMove._isRunning || _playerMove._isRolling || _playerMove._isWallSliding;
 
-        if (stats.CurrentHealth <= 0f)
+        if (isConsuming)
+        {
+            CurrentHealth -= stats.HealthDamage * Time.deltaTime;
+        }
+
+        // 회복은 언제나 시도하되, 소비 중에는 막자
+        if (!isConsuming)
+        {
+            CurrentHealth += stats.HealthGain * Time.deltaTime;
+        }
+
+        CurrentHealth = Mathf.Clamp(CurrentHealth, 0f, stats.MaxHealth);
+        OnHealthChanged?.Invoke(CurrentHealth);
+
+        if (CurrentHealth <= 0f)
         {
             _playerMove.ForceFallFromWall();
         }
@@ -41,9 +45,9 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(Damage damage)
     {
-        stats.CurrentHealth -= damage.Value;
-        stats.CurrentHealth = Mathf.Clamp(stats.CurrentHealth, 0f, stats.MaxHealth);
-        OnHealthChanged?.Invoke(stats.CurrentHealth);
-        Debug.Log($"{stats.CurrentHealth}");
+        CurrentHealth -= damage.Value;
+        CurrentHealth = Mathf.Clamp(CurrentHealth, 0f, stats.MaxHealth);
+        OnHealthChanged?.Invoke(CurrentHealth);
+        Debug.Log($"{CurrentHealth}");
     }
 }

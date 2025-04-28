@@ -8,8 +8,7 @@ public class PlayerStasSO : ScriptableObject
     // - 기본 체력
     // - Max 체력
     // - Shift 키 누를 동안 감소될 체력량
-    public float CurrentHealth = 100f;
     public float MaxHealth = 200f;
     public float HealthDamage = 5f;
-    public float HealthGain = 2f;
+    public float HealthGain = 3f;
 }
