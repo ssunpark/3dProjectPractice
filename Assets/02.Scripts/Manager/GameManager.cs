@@ -11,59 +11,28 @@ public enum GameState
 
 public class GameManager : MonoBehaviour
 {
-    private static GameManager instance;
-
-    public TextMeshProUGUI ReadyText;
+    public static GameManager Instance { get; private set; }
 
     public GameState CurrentState = GameState.Ready;
-
-    public static GameManager Instance
-    {
-        get
-        {
-            if (instance == null) instance = new GameManager();
-            return instance;
-        }
-    }
+    public TextMeshProUGUI ReadyText;
 
     private void Awake()
     {
-        if (instance = null)
+        if (Instance == null)
         {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
+            Instance = this;
         }
         else
         {
             Destroy(gameObject);
         }
     }
-
     private void Start()
     {
         StartCoroutine(GameStart());
     }
 
-    private void Update()
-    {
-        switch (CurrentState)
-        {
-            case GameState.Ready:
-
-                break;
-
-            case GameState.Run:
-
-                break;
-
-            case GameState.Over:
-
-                break;
-
-        }
-    }
-
-    IEnumerator GameStart()
+    private IEnumerator GameStart()
     {
         CurrentState = GameState.Ready;
         ReadyText.text = "Ready...";
@@ -74,6 +43,18 @@ public class GameManager : MonoBehaviour
         CurrentState = GameState.Run;
 
         yield return new WaitForSeconds(0.5f);
+
         ReadyText.text = "";
+    }
+
+    public void GameOver()
+    {
+        CurrentState = GameState.Over;
+        ReadyText.text = "Game Over";
+    }
+
+    public bool CanMove()
+    {
+        return CurrentState == GameState.Run;
     }
 }

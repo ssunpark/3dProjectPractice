@@ -54,6 +54,10 @@ public class PlayerMove : MonoBehaviour
 
     private void PlayerMoving()
     {
+        if (!GameManager.Instance.CanMove())
+        {
+            return;
+        }
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
 

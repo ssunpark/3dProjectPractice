@@ -4,7 +4,6 @@ using UnityEngine.EventSystems;
 
 public class PlayerFire : MonoBehaviour
 {
-    // 필요 속성
     [Header("폭탄")]
     public Transform FirePosition;
     public GameObject BombPrefab;
@@ -22,7 +21,6 @@ public class PlayerFire : MonoBehaviour
     private float _bulletTimer = 0f;
     public BulletCount bulletCount;
 
-
     private void Start()
     {
         LockCursor();
@@ -32,6 +30,8 @@ public class PlayerFire : MonoBehaviour
     private void Update()
     {
         if (EventSystem.current.IsPointerOverGameObject()) return;
+        if (!GameManager.Instance.CanMove()) return;
+
         HandleCursorToggle();
         _bulletTimer += Time.deltaTime;
         ThrowBullet();
@@ -41,13 +41,9 @@ public class PlayerFire : MonoBehaviour
     private void HandleCursorToggle()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
-        {
             UnlockCursor();
-        }
         else if (Input.GetKeyDown(KeyCode.Tab))
-        {
             LockCursor();
-        }
     }
 
     private void LockCursor()
@@ -55,6 +51,7 @@ public class PlayerFire : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
+
     private void UnlockCursor()
     {
         Cursor.lockState = CursorLockMode.None;
@@ -64,7 +61,6 @@ public class PlayerFire : MonoBehaviour
     private void InitializePool()
     {
         _bombPool = new List<GameObject>();
-
         for (int i = 0; i < PoolSize; i++)
         {
             GameObject bomb = Instantiate(BombPrefab);
@@ -78,9 +74,7 @@ public class PlayerFire : MonoBehaviour
         foreach (var bomb in _bombPool)
         {
             if (!bomb.activeInHierarchy)
-            {
                 return bomb;
-            }
         }
         return null;
     }
@@ -89,51 +83,33 @@ public class PlayerFire : MonoBehaviour
     {
         if (Input.GetMouseButton(0) && _bulletTimer >= bulletCooldown)
         {
-            if (bulletCount.TryUseBullet())
+            if (!bulletCount.TryUseBullet()) return;
+
+            Ray ray = new Ray(FirePosition.transform.position, Camera.main.transform.forward);
+            if (Physics.Raycast(ray, out RaycastHit hitInfo))
             {
-                Ray ray = new Ray(FirePosition.transform.position, Camera.main.transform.forward);
-                RaycastHit hitInfo = new RaycastHit();
+                BulletEffect.transform.position = hitInfo.point;
+                BulletEffect.transform.forward = hitInfo.normal;
+                BulletEffect.Play();
 
-                bool isHit = Physics.Raycast(ray, out hitInfo);
-                if (isHit)
+                if (hitInfo.collider.TryGetComponent<IDamagable>(out var damagable))
                 {
-                    BulletEffect.transform.position = hitInfo.point;
-                    BulletEffect.transform.forward = hitInfo.normal;
-                    BulletEffect.Play();
-
-                    if (hitInfo.collider.gameObject.CompareTag("Enemy"))
+                    Damage damage = new Damage
                     {
-                        Enemy enemy = hitInfo.collider.GetComponentInParent<Enemy>();
-                        if (enemy != null)
-                        {
-                            Damage damage = new Damage();
-                            damage.Value = 10;
-                            damage.From = this.gameObject;
-                            enemy.TakeDamage(damage);
-                            Debug.Log($"Enemy: {damage}");
-                        }
-                    }
-                    if (hitInfo.collider.gameObject.CompareTag("Barrel"))
-                    {
-                        Barrel barrel = hitInfo.collider.GetComponent<Barrel>();
-                        if (barrel != null)
-                        {
-                            Damage damage = new Damage();
-                            damage.Value = 1;
-                            damage.From = this.gameObject;
-                            barrel.TakeDamage(damage);
-                            Debug.Log($"Barrel: {damage}");
-                        }
-                    }
+                        Value = 10,
+                        From = this.gameObject
+                    };
+                    damagable.TakeDamage(damage);
+                    Debug.Log($"[총알 명중] {hitInfo.collider.name}, Damage: {damage.Value}");
                 }
-                _bulletTimer = 0f;
             }
+
+            _bulletTimer = 0f;
         }
     }
 
     private void ThrowBomb()
     {
-
         if (Input.GetMouseButtonDown(1))
         {
             _isHolding = true;
@@ -160,6 +136,7 @@ public class PlayerFire : MonoBehaviour
                 rb.AddForce(Camera.main.transform.forward * throwForce, ForceMode.Impulse);
                 rb.AddTorque(Vector3.one);
             }
+
             _isHolding = false;
         }
     }

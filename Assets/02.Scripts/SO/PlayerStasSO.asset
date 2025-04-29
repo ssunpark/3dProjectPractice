@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHealth: 200
   HealthDamage: 5
-  HealthGain: 3
+  HealthGain: 0

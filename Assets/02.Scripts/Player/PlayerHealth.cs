@@ -7,12 +7,15 @@ public class PlayerHealth : MonoBehaviour
     public PlayerMove _playerMove;
     public UnityEvent<float> OnHealthChanged;
 
-    public float CurrentHealth = 100f; // 얘는 계속 변하니까 따로 안빼줌.
-    // 슬라이더에 반영하려면 설정을 따로 해줘야 한다!!
+    public float CurrentHealth { get; private set; }
+    private bool _isDead = false;
+
     private void Start()
     {
+        CurrentHealth = stats.MaxHealth;
         OnHealthChanged?.Invoke(CurrentHealth);
     }
+
     private void Update()
     {
         HealthControl();
@@ -23,31 +26,27 @@ public class PlayerHealth : MonoBehaviour
         bool isConsuming = _playerMove._isRunning || _playerMove._isRolling || _playerMove._isWallSliding;
 
         if (isConsuming)
-        {
-            CurrentHealth -= stats.HealthDamage * Time.deltaTime;
-        }
+            ApplyHealth(-stats.HealthDamage * Time.deltaTime);
+        else
+            ApplyHealth(stats.HealthGain * Time.deltaTime);
 
-        // 회복은 언제나 시도하되, 소비 중에는 막자
-        if (!isConsuming)
+        if (CurrentHealth <= 0f && !_isDead)
         {
-            CurrentHealth += stats.HealthGain * Time.deltaTime;
-        }
-
-        CurrentHealth = Mathf.Clamp(CurrentHealth, 0f, stats.MaxHealth);
-        OnHealthChanged?.Invoke(CurrentHealth);
-
-        if (CurrentHealth <= 0f)
-        {
+            _isDead = true;
             _playerMove.ForceFallFromWall();
         }
-
     }
 
     public void TakeDamage(Damage damage)
     {
-        CurrentHealth -= damage.Value;
+        ApplyHealth(-damage.Value);
+        Debug.Log($"[피격] CurrentHealth: {CurrentHealth}");
+    }
+
+    private void ApplyHealth(float amount)
+    {
+        CurrentHealth += amount;
         CurrentHealth = Mathf.Clamp(CurrentHealth, 0f, stats.MaxHealth);
         OnHealthChanged?.Invoke(CurrentHealth);
-        Debug.Log($"{CurrentHealth}");
     }
 }

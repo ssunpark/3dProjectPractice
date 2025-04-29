@@ -12,6 +12,10 @@ public class PlayerRotate : MonoBehaviour
     }
     private void Update()
     {
+        if (!GameManager.Instance.CanMove())
+        {
+            return;
+        }
         float mouseX = Input.GetAxis("Mouse X");
         _rotationX += mouseX * RotationSpeed * Time.deltaTime;
         transform.eulerAngles = new Vector3(0, _rotationX, 0);
