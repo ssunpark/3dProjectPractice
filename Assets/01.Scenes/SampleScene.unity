@@ -18365,6 +18365,7 @@ MonoBehaviour:
   MaxThrowPower: 30
   MaxHoldTime: 0.2
   PoolSize: 10
+  maxBombCount: 3
   BulletEffect: {fileID: 430805495}
   bulletCooldown: 0.2
   bulletCount: {fileID: 1745988087}

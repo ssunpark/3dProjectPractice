@@ -2,21 +2,40 @@ using UnityEngine;
 
 public class Bomb : MonoBehaviour
 {
-    // ¸ñÇ¥: ¸¶¿ì½ºÀÇ ¿À¸¥ÂÊ ¹öÆ°À» ´©¸£¸é Ä«¸Ş¶ó°¡ ¹Ù¶óº¸´Â ¹æÇâÀ¸·Î ¼ö·ùÅºÀ» ´øÁö°í ½Í´Ù.
-    // 1. ¼ö·ùÅº ¿ÀºêÁ§Æ® ¸¸µé±â
-    // 2. ¿À¸¥ÂÊ ¹öÆ° ÀÔ·Â ¹Ş±â
-    // 3. ¹ß»ç À§Ä¡¿¡ ¼ö·ùÅº »ı¼ºÇÏ±â
-    // 4. »ı¼ºµÈ ¼ö·ùÅºÀ» Ä«¸Ş¶ó ¹æÇâÀ¸·Î ¹°¸®ÀûÀÎ Èû °¡ÇÏ±â
-
     public GameObject VfxPrefab;
 
-    // Ãæµ¹ÇßÀ» ¶§
     private void OnCollisionEnter(Collision collision)
     {
-        // 1) Ãæµ¹ À§Ä¡¿¡ VFX »ı¼º
-        Instantiate(VfxPrefab, transform.position, Quaternion.identity);
+        // ì´í™íŠ¸ ìƒì„±
+        if (VfxPrefab != null)
+            Instantiate(VfxPrefab, transform.position, Quaternion.identity);
 
-        // 2) ¼ö·ùÅº ¿ÀºêÁ§Æ®´Â »èÁ¦ (Áï½Ã È¤Àº È¿°ú ÈÄ¿¡)
+        // í•„ìš”í•œ ê²½ìš° í­ë°œ ë²”ìœ„ ë‚´ ëŒ€ë¯¸ì§€ ì²˜ë¦¬
+        if (TryGetComponent<SphereCollider>(out var sphere))
+        {
+            Collider[] targets = Physics.OverlapSphere(transform.position, sphere.radius * transform.localScale.x);
+            foreach (var target in targets)
+            {
+                if (target.TryGetComponent<IDamagable>(out var damagable))
+                {
+                    Damage damage = new Damage
+                    {
+                        Value = 10,
+                        From = this.gameObject
+                    };
+                    damagable.TakeDamage(damage);
+                }
+            }
+        }
+
+        // Rigidbody ì´ˆê¸°í™”
+        if (TryGetComponent<Rigidbody>(out var rb))
+        {
+            rb.linearVelocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+        }
+
+        // í’€ë§ ë°©ì‹: SetActive(false)
         gameObject.SetActive(false);
     }
 }

@@ -14,6 +14,8 @@ public class PlayerFire : MonoBehaviour
     private bool _isHolding = false;
     public int PoolSize = 10;
     private List<GameObject> _bombPool;
+    public int maxBombCount = 3;
+    private int currentBombCount = 0;
 
     [Header("총알")]
     public ParticleSystem BulletEffect;
@@ -112,6 +114,11 @@ public class PlayerFire : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1))
         {
+            if (currentBombCount >= maxBombCount)
+            {
+                Debug.Log("더 이상 폭탄을 던질 수 없습니다.");
+                return;
+            }
             _isHolding = true;
             __holdTimer = 0f;
         }
@@ -125,6 +132,8 @@ public class PlayerFire : MonoBehaviour
             float throwForce = Mathf.Lerp(MinThrowPower, MaxThrowPower, t);
 
             GameObject bomb = GetBombFromPool();
+            if (bomb == null) return;
+
             bomb.transform.position = FirePosition.position;
             bomb.transform.rotation = Camera.main.transform.rotation;
             bomb.SetActive(true);
@@ -136,6 +145,9 @@ public class PlayerFire : MonoBehaviour
                 rb.AddForce(Camera.main.transform.forward * throwForce, ForceMode.Impulse);
                 rb.AddTorque(Vector3.one);
             }
+
+            currentBombCount++;
+            Debug.Log($"폭탄 사용: {currentBombCount}/{maxBombCount}");
 
             _isHolding = false;
         }
