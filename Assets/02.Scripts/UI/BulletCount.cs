@@ -1,3 +1,5 @@
+using KINEMATION.FPSAnimationPack.Scripts.Player;
+using KINEMATION.FPSAnimationPack.Scripts.Weapon;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -8,6 +10,10 @@ public class BulletCount : MonoBehaviour
     public TextMeshProUGUI BulletText;
     public TextMeshProUGUI BulletCoolTimeText;
 
+    // ÃÑ ¹«±â°¡ ¹Ù²ñ¿¡ µû¶ó Åº¼ö UI ¾÷µ¥ÀÌÆ®
+    private FPSWeapon _fpsWeapon;
+    private FPSPlayer _fpsPlayer;
+
     private float _reloadTime = 2.0f;
     private int _bulletCurrentCount = 50;
     private int _bulletMaxCount = 50;
@@ -17,7 +23,8 @@ public class BulletCount : MonoBehaviour
 
     private void Start()
     {
-        _bulletCurrentCount = _bulletMaxCount;
+        //_fpsPlayer = FindAnyObjectByType<FPSPlayer>();
+        //_fpsWeapon = _fpsPlayer.GetActiveWeapon();
         UpdateUI();
     }
 

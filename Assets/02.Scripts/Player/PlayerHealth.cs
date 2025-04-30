@@ -12,7 +12,7 @@ public class PlayerHealth : MonoBehaviour, IDamagable
 
     private void Start()
     {
-        CurrentHealth = stats.MaxHealth;
+        CurrentHealth = stats.MaxHealth / 2;
         OnHealthChanged?.Invoke(CurrentHealth);
     }
 

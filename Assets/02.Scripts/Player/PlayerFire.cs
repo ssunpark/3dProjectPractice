@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -6,16 +5,15 @@ public class PlayerFire : MonoBehaviour
 {
     [Header("폭탄")]
     public Transform FirePosition;
-    public GameObject BombPrefab;
     public float MinThrowPower = 10f;
     public float MaxThrowPower = 20f;
     public float MaxHoldTime = 0.2f;
     private float __holdTimer = 0f;
     private bool _isHolding = false;
-    public int PoolSize = 10;
-    private List<GameObject> _bombPool;
-    public int maxBombCount = 3;
+
     private int currentBombCount = 0;
+    private int maxBombCount = 3;
+    public BombCount _bomCount;
 
     [Header("총알")]
     public ParticleSystem BulletEffect;
@@ -26,7 +24,8 @@ public class PlayerFire : MonoBehaviour
     private void Start()
     {
         LockCursor();
-        InitializePool();
+        currentBombCount = 0;
+        _bomCount?.UpdateBombUI(currentBombCount, maxBombCount);
     }
 
     private void Update()
@@ -60,40 +59,27 @@ public class PlayerFire : MonoBehaviour
         Cursor.visible = true;
     }
 
-    private void InitializePool()
-    {
-        _bombPool = new List<GameObject>();
-        for (int i = 0; i < PoolSize; i++)
-        {
-            GameObject bomb = Instantiate(BombPrefab);
-            bomb.SetActive(false);
-            _bombPool.Add(bomb);
-        }
-    }
-
-    private GameObject GetBombFromPool()
-    {
-        foreach (var bomb in _bombPool)
-        {
-            if (!bomb.activeInHierarchy)
-                return bomb;
-        }
-        return null;
-    }
-
     private void ThrowBullet()
     {
         if (Input.GetMouseButton(0) && _bulletTimer >= bulletCooldown)
         {
-            if (!bulletCount.TryUseBullet()) return;
+            if (!bulletCount.TryUseBullet())
+            {
+                Debug.Log("[총알] 총알 부족");
+                return;
+            }
 
-            Ray ray = new Ray(FirePosition.transform.position, Camera.main.transform.forward);
+            Ray ray = new Ray(FirePosition.position, Camera.main.transform.forward);
             if (Physics.Raycast(ray, out RaycastHit hitInfo))
             {
                 BulletEffect.transform.position = hitInfo.point;
                 BulletEffect.transform.forward = hitInfo.normal;
                 BulletEffect.Play();
 
+                if (hitInfo.collider.gameObject == this.gameObject)
+                {
+                    return;
+                }
                 if (hitInfo.collider.TryGetComponent<IDamagable>(out var damagable))
                 {
                     Damage damage = new Damage
@@ -102,7 +88,7 @@ public class PlayerFire : MonoBehaviour
                         From = this.gameObject
                     };
                     damagable.TakeDamage(damage);
-                    Debug.Log($"[총알 명중] {hitInfo.collider.name}, Damage: {damage.Value}");
+                    Debug.Log($"[총알 명중] 대상: {hitInfo.collider.name}, 데미지: {damage.Value}");
                 }
             }
 
@@ -116,9 +102,10 @@ public class PlayerFire : MonoBehaviour
         {
             if (currentBombCount >= maxBombCount)
             {
-                Debug.Log("더 이상 폭탄을 던질 수 없습니다.");
+                Debug.Log("[폭탄] 더 이상 폭탄을 던질 수 없습니다.");
                 return;
             }
+
             _isHolding = true;
             __holdTimer = 0f;
         }
@@ -131,12 +118,16 @@ public class PlayerFire : MonoBehaviour
             float t = __holdTimer / MaxHoldTime;
             float throwForce = Mathf.Lerp(MinThrowPower, MaxThrowPower, t);
 
-            GameObject bomb = GetBombFromPool();
-            if (bomb == null) return;
+            GameObject bomb = BombPoolManager.Instance.GetBomb();
+            if (bomb == null)
+            {
+                Debug.LogWarning("[폭탄] 폭탄 풀에 더 이상 사용 가능한 폭탄이 없습니다.");
+                return;
+            }
 
             bomb.transform.position = FirePosition.position;
             bomb.transform.rotation = Camera.main.transform.rotation;
-            bomb.SetActive(true);
+
 
             if (bomb.TryGetComponent<Rigidbody>(out var rb))
             {
@@ -147,7 +138,8 @@ public class PlayerFire : MonoBehaviour
             }
 
             currentBombCount++;
-            Debug.Log($"폭탄 사용: {currentBombCount}/{maxBombCount}");
+            _bomCount?.UpdateBombUI(currentBombCount, maxBombCount);
+            Debug.Log($"[폭탄 사용] 현재 수: {currentBombCount}/{maxBombCount}");
 
             _isHolding = false;
         }
