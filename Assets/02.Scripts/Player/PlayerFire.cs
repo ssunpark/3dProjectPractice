@@ -1,8 +1,15 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+public enum WeaponType
+{
+    Gun, // 총
+    Sword // 칼
+}
 
 public class PlayerFire : MonoBehaviour
 {
+    private WeaponType currentWeapon = WeaponType.Gun;
+
     [Header("폭탄")]
     public Transform FirePosition;
     public float MinThrowPower = 10f;
@@ -21,6 +28,13 @@ public class PlayerFire : MonoBehaviour
     private float _bulletTimer = 0f;
     public BulletCount bulletCount;
 
+    [Header("칼")]
+    public float meleeRange = 2f;
+    public float meleeAngle = 90f;
+    public int meleeDamage = 20;
+    public LayerMask enemyLayer; //적이 감지할 레이어
+
+
     private void Start()
     {
         LockCursor();
@@ -35,8 +49,29 @@ public class PlayerFire : MonoBehaviour
 
         HandleCursorToggle();
         _bulletTimer += Time.deltaTime;
-        ThrowBullet();
+        HandleWeaponSwap();
+
+        if (currentWeapon == WeaponType.Gun)
+        {
+            ThrowBullet();
+        }
+        if (currentWeapon == WeaponType.Sword)
+        {
+            HandleMeleeInput();
+        }
         ThrowBomb();
+    }
+
+    private void HandleWeaponSwap()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            currentWeapon = WeaponType.Gun;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            currentWeapon = WeaponType.Sword;
+        }
     }
 
     private void HandleCursorToggle()
@@ -95,6 +130,40 @@ public class PlayerFire : MonoBehaviour
             _bulletTimer = 0f;
         }
     }
+
+    private void HandleMeleeInput()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            MeleeAttack();
+        }
+    }
+
+    private void MeleeAttack()
+    {
+        Collider[] hits = Physics.OverlapSphere(transform.position, meleeRange, enemyLayer);
+
+        foreach (Collider hit in hits)
+        {
+            Vector3 dirToTarget = (hit.transform.position - transform.position).normalized;
+            float angle = Vector3.Angle(transform.forward, dirToTarget);
+
+            if (angle <= meleeAngle / 2f)
+            {
+                if (hit.TryGetComponent<IDamagable>(out var damagable))
+                {
+                    Damage damage = new Damage
+                    {
+                        Value = meleeDamage,
+                        From = this.gameObject
+                    };
+                    damagable.TakeDamage(damage);
+                    Debug.Log($"[칼 공격] {hit.name}에게 데미지 {meleeDamage} 입힘");
+                }
+            }
+        }
+    }
+
 
     private void ThrowBomb()
     {
