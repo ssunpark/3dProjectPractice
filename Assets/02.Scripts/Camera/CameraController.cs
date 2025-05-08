@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public Transform currentTarget;
+    [SerializeField] private Transform currentTarget;
     public float positionSmooth = 10f;
     public float rotationSmooth = 10f;
 

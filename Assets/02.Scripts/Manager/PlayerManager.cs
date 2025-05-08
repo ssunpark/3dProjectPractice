@@ -15,26 +15,40 @@ public class PlayerManager : MonoBehaviour
     // 필요 속성
     public GameObject _fpsPlayer;
     public GameObject _tpsPlayer;
+    public Transform[] cameraTargets; // 0: TPS, 1: QT
+    public CameraController cameraController;
 
     private void Start()
     {
-        _fpsPlayer.SetActive(true);
-        _tpsPlayer.SetActive(false);
+        SetView(CurrentViewType);
     }
     private void Update()
     {
-        // FPS 모드로 변환
-        if (Input.GetKeyDown(KeyCode.Alpha8))
+        if (Input.GetKeyDown(KeyCode.Alpha8)) SetView(ViewType.FpsView);
+        if (Input.GetKeyDown(KeyCode.Alpha9)) SetView(ViewType.TpsView);
+        if (Input.GetKeyDown(KeyCode.Alpha0)) SetView(ViewType.QTView);
+    }
+
+    private void SetView(ViewType viewType)
+    {
+        CurrentViewType = viewType;
+
+        switch (viewType)
         {
-            CurrentViewType = ViewType.FpsView;
-            _tpsPlayer.SetActive(false);
-            _fpsPlayer.SetActive(true);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha9))
-        {
-            CurrentViewType = ViewType.TpsView;
-            _fpsPlayer.SetActive(false);
-            _tpsPlayer.SetActive(true);
+            case ViewType.FpsView:
+                _fpsPlayer.SetActive(true);
+                _tpsPlayer.SetActive(false);
+                break;
+            case ViewType.TpsView:
+                _fpsPlayer.SetActive(false);
+                _tpsPlayer.SetActive(true);
+                cameraController.SetTarget(cameraTargets[0]);
+                break;
+            case ViewType.QTView:
+                _fpsPlayer.SetActive(false);
+                _tpsPlayer.SetActive(true);
+                cameraController.SetTarget(cameraTargets[1]);
+                break;
         }
     }
 
