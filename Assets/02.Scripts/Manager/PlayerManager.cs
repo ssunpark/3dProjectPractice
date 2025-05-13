@@ -43,11 +43,13 @@ public class PlayerManager : MonoBehaviour
                 _fpsPlayer.SetActive(false);
                 _tpsPlayer.SetActive(true);
                 cameraController.SetTarget(cameraTargets[0]);
+                GetComponent<PlayerMove>().InitTPSMode();
                 break;
             case ViewType.QTView:
                 _fpsPlayer.SetActive(false);
                 _tpsPlayer.SetActive(true);
                 cameraController.SetTarget(cameraTargets[1]);
+                GetComponent<PlayerMove>().InitTPSMode();
                 break;
         }
     }

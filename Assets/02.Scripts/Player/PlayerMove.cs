@@ -27,6 +27,7 @@ public class PlayerMove : MonoBehaviour
     private bool _forceFallFromWall = false;
 
     private CharacterController _chracterController;
+    private Animator _playerAnimator;
 
     private void Awake()
     {
@@ -38,6 +39,7 @@ public class PlayerMove : MonoBehaviour
         IfGrounded();
         WallSlide();
         PlayerMoving();
+        //UpdateAnimation();
     }
 
     private void IfGrounded()
@@ -52,12 +54,36 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
+    public void InitTPSMode()
+    {
+        _playerAnimator = GetComponentInChildren<Animator>();
+    }
+
+    //private void UpdateAnimation()
+    //{
+    //    if (_playerAnimator == null || !_playerAnimator.isActiveAndEnabled || _playerAnimator.runtimeAnimatorController == null) return;
+
+    //    float h = Input.GetAxisRaw("Horizontal");
+    //    float v = Input.GetAxisRaw("Vertical");
+
+    //    float moveAmount = new Vector2(h, v).magnitude;
+
+    //    // 달릴 때만 속도를 더해줘
+    //    float speed = _isRunning ? moveAmount + 0.5f : moveAmount;
+    //    float clampedSpeed = Mathf.Clamp01(speed);
+
+    //    Debug.Log($"[애니메이션] MoveSpeed: {clampedSpeed}");
+
+    //    _playerAnimator.SetFloat("MoveSpeed", clampedSpeed);
+    //}
+
     private void PlayerMoving()
     {
         if (!GameManager.Instance.CanMove())
         {
             return;
         }
+
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
 
@@ -115,6 +141,7 @@ public class PlayerMove : MonoBehaviour
         // 1) 벽타기 체크
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
+
         Vector3 flatDir = new Vector3(h, 0f, v).normalized;
         flatDir = Camera.main.transform.TransformDirection(flatDir);
 
@@ -147,6 +174,7 @@ public class PlayerMove : MonoBehaviour
 
                 _isWallSliding = false;
                 _jumpCount = 1;
+                _playerAnimator.SetTrigger("Jump");
             }
         }
         else
