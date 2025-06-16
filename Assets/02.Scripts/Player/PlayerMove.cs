@@ -39,7 +39,7 @@ public class PlayerMove : MonoBehaviour
         IfGrounded();
         WallSlide();
         PlayerMoving();
-        //UpdateAnimation();
+        UpdateAnimation();
     }
 
     private void IfGrounded()
@@ -57,25 +57,24 @@ public class PlayerMove : MonoBehaviour
     public void InitTPSMode()
     {
         _playerAnimator = GetComponentInChildren<Animator>();
+        Debug.Log(_playerAnimator != null ? "애니메이션 등록" : "애니메이터 못찾음");
     }
 
-    //private void UpdateAnimation()
-    //{
-    //    if (_playerAnimator == null || !_playerAnimator.isActiveAndEnabled || _playerAnimator.runtimeAnimatorController == null) return;
+    private void UpdateAnimation()
+    {
+        if (_playerAnimator == null || !_playerAnimator.isActiveAndEnabled || _playerAnimator.runtimeAnimatorController == null) return;
 
-    //    float h = Input.GetAxisRaw("Horizontal");
-    //    float v = Input.GetAxisRaw("Vertical");
+        float h = Input.GetAxisRaw("Horizontal");
+        float v = Input.GetAxisRaw("Vertical");
 
-    //    float moveAmount = new Vector2(h, v).magnitude;
+        // 방향 입력 세기(0~1 사이)
+        float moveAmount = new Vector2(h, v).magnitude;
 
-    //    // 달릴 때만 속도를 더해줘
-    //    float speed = _isRunning ? moveAmount + 0.5f : moveAmount;
-    //    float clampedSpeed = Mathf.Clamp01(speed);
+        //// 최종 이동 속도 값 (0 ~ 1 사이로 제한)
+        float speed = _isRunning ? 2f : moveAmount;
 
-    //    Debug.Log($"[애니메이션] MoveSpeed: {clampedSpeed}");
-
-    //    _playerAnimator.SetFloat("MoveSpeed", clampedSpeed);
-    //}
+        _playerAnimator.SetFloat("MoveSpeed", speed);
+    }
 
     private void PlayerMoving()
     {
@@ -100,6 +99,11 @@ public class PlayerMove : MonoBehaviour
             _yVelocity = JumpPower;
             _jumpCount++;
             dir.y = _yVelocity;
+            //if (_playerAnimator != null)
+            //{
+            //    Debug.Log("점프 실행중");
+            //    _playerAnimator.SetTrigger("Jump");
+            //}
         }
 
 
@@ -108,6 +112,7 @@ public class PlayerMove : MonoBehaviour
         {
             _chracterController.Move(dir * RunSpeed * Time.deltaTime);
             _isRunning = true;
+
         }
         else
         {
@@ -174,7 +179,6 @@ public class PlayerMove : MonoBehaviour
 
                 _isWallSliding = false;
                 _jumpCount = 1;
-                _playerAnimator.SetTrigger("Jump");
             }
         }
         else
